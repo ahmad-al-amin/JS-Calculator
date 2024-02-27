@@ -1,0 +1,121 @@
+*,
+::before,
+::after
+{
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body
+{
+	background: linear-gradient(black,black);
+	position: relative;
+	min-height: 100vh;
+}
+body::before
+{
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(to left,#0014ff, #d800ff );
+	clip-path: circle(19% at 30% 10%);
+	z-index: -1;
+}
+body::after
+{
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(#e406ff, #ff0000 );
+	clip-path: circle(19% at 65% 90%);
+	z-index: -1;
+}
+
+.container
+{
+	position: relative;
+	background: transparent;
+	overflow: hidden;
+	z-index: 10;
+	
+}
+
+.container .calculator
+{
+	margin: 100px auto;
+	display: grid;
+	justify-content: center;
+	align-content: center;
+	grid-template-columns: repeat(4, 90px);
+	grid-template-rows: minmax(100px, auto) repeat(5, 75px);
+	
+}
+
+.calculator .value
+{
+	text-align: right;
+	border: none;
+	outline: none;
+	padding: .4em;
+	font-size: 2.4rem;
+	background: transparent;
+	color: white;
+	grid-column: 1 / -1;
+	word-wrap: break-word;
+	word-break: break-all;
+	border: 4px solid rgb(5, 218, 218);
+	backdrop-filter: blur(15px);
+}
+
+.calculator span
+{
+	display: grid;
+	justify-content: center;
+	align-items: center;
+	grid-gap: 4px 4px;
+	font-weight: 600;
+	font-size: 1.4rem;
+	color: white;
+	cursor: pointer;
+	user-select: none;
+	transition: all 400ms;
+	border: 4px solid #00ffff8f;
+	backdrop-filter: blur(15px);
+	webkit-backdrop-filter: blur(15px);
+	moz-backdrop-filter: blur(15px);
+	o-backdrop-filter: blur(15px);
+}
+.calculator span:hover
+{
+	transition: 0s;
+	background: #5100ff;
+}
+.calculator span:active
+{
+	background: linear-gradient(to right,#e91e63, #ffc107 );
+	color: black;
+}
+
+.calculator .ac,
+.calculator .equal
+{
+	grid-column: span 2;
+}
+
+.calculator .bold
+{
+	font-size: 2rem;
+	font-weight: 700;
+}
+
+.calculator .clr
+{
+	background: linear-gradient(to right,#c01ee91f, #590cff9e );
+}
